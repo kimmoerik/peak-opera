@@ -1,15 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Peak Opera</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peak Opera | Amateur Opera Society</title>
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-color: #5c1d24; /* Opera burgundy */
+      --accent-color: #d4af37;  /* Gold accent */
+      --text-color: #2b2b2b;
+      --light-bg: #f9f8f6;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+    }
+
+    /* Navigation Bar */
+    header {
+      background-color: var(--primary-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Hero Header */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      height: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--white);
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+    }
+
+    /* Main Sections */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem;
+    }
+
+    section:nth-child(even) {
+      background-color: var(--white);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid var(--accent-color);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .audition-link {
+      color: var(--primary-color);
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .audition-link:hover {
+      color: var(--accent-color);
+    }
+
+    /* Gallery Placeholder */
+    .gallery-placeholder {
+      padding: 2rem;
+      background: #eee;
+      border-radius: 8px;
+      text-align: center;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* Modals */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 2000; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      background-color: rgba(0,0,0,0.6); 
+    }
+
+    .modal-content {
+      background-color: var(--white);
+      margin: 15% auto; 
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 1rem;
+      top: 0.5rem;
+      color: #aaa;
+      font-size: 1.8rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #000;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<h1>Peak Opera</h1>
-<p>
-Welcome to Peak Opera.
-</p>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <a href="#" class="logo">PEAK OPERA</a>
+      <ul class="nav-links">
+        <li><a href="#who-we-are">Who We Are</a></li>
+        <li><a href="#upcoming-events">Upcoming Events</a></li>
+        <li><a href="#auditions-info">Auditions &amp; Practical Info</a></li>
+        <li><a href="#previous-shows">Previous Shows Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <div class="hero">
+    <h1>Peak Opera</h1>
+    <p>Performing at the International Gilbert &amp; Sullivan Festival</p>
+  </div>
+
+  <main>
+    
+    <!-- Who We Are -->
+    <section id="who-we-are">
+      <h2>Who We Are</h2>
+      <p>We are Peak Opera. We are a amature society who perform at the International Gilbert and Sullivan Festival every year. Everybody learns there music at home. Then we meet up for a week of rehersals and finish off the week by performing the show in the Buxton Opera House.</p>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section id="upcoming-events">
+      <h2>Upcoming Events</h2>
+      <p>Our standard event is performing at the International Gilbert and Sullivan Festival. The show we will be performing 2027 has not yet been anounced. But when it is we will be sure to update! Our performance and rehersal dates will also be released shortly.</p>
+    </section>
+
+    <!-- Auditions & Practical Info -->
+    <section id="auditions-info">
+      <h2>Auditions &amp; Practical Info</h2>
+      <p style="margin-bottom: 1.5rem;">Next year we will perform the oparetta Ruddigore.</p>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3>Auditions</h3>
+          <p style="margin-bottom: 1rem;">
+            If you would like to audition for a soloist part, please 
+            <a class="audition-link" onclick="openModal('soloistModal')">see further information here</a>.
+          </p>
+          <p>
+            If you would like to audition to our chourus, please 
+            <a class="audition-link" onclick="openModal('chorusModal')">see further information here</a>.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Practical Information</h3>
+          <p><strong>Rehersal venue:</strong> the church</p>
+          <p><strong>Rehersal dates:</strong> 1-7 july</p>
+          <p><strong>Soloist rehersals:</strong> 30 july-7 august</p>
+          <p><strong>Show day:</strong> 7 august</p>
+          <p style="margin-top: 0.8rem; font-style: italic;">If you have any questions, please contact the director.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Previous Shows Gallery -->
+    <section id="previous-shows">
+      <h2>Previous Shows Gallery</h2>
+      <div class="gallery-placeholder">
+        <p>Previous Shows Gallery will be fixed later.</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Please contact our director at <a href="mailto:director@gmail.com" class="audition-link">director@gmail.com</a>.</p>
+    </section>
+
+  </main>
+
+  <!-- Soloist Modal -->
+  <div id="soloistModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('soloistModal')">&times;</span>
+      <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Soloist Audition Info</h3>
+      <p><strong>Ruddigore</strong></p>
+      <p><strong>Soloist parts:</strong> Bunthorn</p>
+      <p style="margin-top: 0.5rem;">Please send a recording to the director at <a href="mailto:director@gmail.com">director@gmail.com</a>.</p>
+    </div>
+  </div>
+
+  <!-- Chorus Modal -->
+  <div id="chorusModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('chorusModal')">&times;</span>
+      <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Chorus Audition Info</h3>
+      <p><strong>Chorus auditions:</strong> Sing welcome gentry and send to director.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; Peak Opera. Performing at the Buxton Opera House.</p>
+  </footer>
+
+  <script>
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'block';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    }
+  </script>
+
 </body>
 </html>
