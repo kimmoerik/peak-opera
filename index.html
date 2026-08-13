@@ -75,14 +75,14 @@
     /* Enhanced Dynamic Hero Header */
     .hero {
       position: relative;
-      height: 55vh;
+      min-height: 55vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: var(--white);
-      padding: 0 1rem;
+      padding: 3rem 1rem;
       overflow: hidden;
     }
     .hero-bg {
@@ -105,15 +105,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-top: 1rem;
     }
     .hero-logo-wrapper {
       position: relative;
       padding: 1rem 2rem;
       border-radius: 12px;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(3px);
       box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
     .hero-logo-svg {
       width: 320px;
@@ -142,10 +143,10 @@
       box-shadow: 0 0 8px var(--accent-color);
     }
     
-    /* Hero Get In Touch Button */
+    /* Join Our Next Show Hero Button */
     .hero-btn {
-      margin-top: 1.2rem;
-      padding: 0.7rem 1.6rem;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.8rem;
       background-color: var(--accent-color);
       color: var(--primary-color);
       font-weight: bold;
@@ -153,7 +154,7 @@
       border: none;
       border-radius: 25px;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1.05rem;
       transition: all 0.3s ease;
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
@@ -402,6 +403,14 @@
       padding: 1.5rem;
       margin-top: 2rem;
     }
+    .footer-link {
+      color: var(--accent-color);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .footer-link:hover {
+      color: var(--white);
+    }
 
     @media (max-width: 768px) {
       nav {
@@ -485,7 +494,7 @@
         </svg>
       </div>
       <p>Performing at the International Gilbert &amp; Sullivan Festival</p>
-      <button class="hero-btn" onclick="openModal('getInTouchModal')">Get in Touch</button>
+      <button class="hero-btn" onclick="openModal('getInTouchModal')">Join Our Next Show</button>
     </div>
   </div>
 
@@ -559,7 +568,8 @@
       <h2>Questions</h2>
       <div class="questions-container">
         <!-- On-Page Question Form -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+        <!-- Replace YOUR_FORM_ID below with your Formspree ID (e.g. https://formspree.io/f/xyzab123) -->
+        <form action="https://formspree.io/f/xdendovy" method="POST" class="contact-form">
           <p style="margin-bottom: 1.2rem;">Have a question? Ask us directly on the website below!</p>
           <div class="form-group">
             <label for="q-name">Your Name</label>
@@ -580,7 +590,7 @@
         <div class="faq-box">
           <h3>Common Questions</h3>
           <p style="margin-top: 0.5rem;">Looking for quick answers?</p>
-          <button class="faq-btn" onclick="openModal('faqModal')">Often Asked Questions</button>
+          <button class="faq-btn" onclick="openModal('faqModal')">Frequently Asked Questions</button>
         </div>
       </div>
     </section>
@@ -632,7 +642,7 @@
   <div id="faqModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal('faqModal')">&times;</span>
-      <h3 style="color: var(--primary-color); margin-bottom: 1.2rem;">Often Asked Questions</h3>
+      <h3 style="color: var(--primary-color); margin-bottom: 1.2rem;">Frequently Asked Questions</h3>
       
       <p><strong>Is there an age limit for performing with you?</strong></p>
       <p style="margin-top: 0.2rem; margin-bottom: 1rem;">Yes, we do have an upper limit of 80. More info coming...</p>
@@ -646,7 +656,7 @@
   </div>
 
   <footer>
-    <p>Website manager is Sophia Eriksson</p>
+    <p>Website manager is <a href="mailto:sae17b@gmail.com" class="footer-link">Sophia Eriksson</a></p>
   </footer>
 
   <script>
