@@ -75,7 +75,7 @@
     /* Enhanced Dynamic Hero Header */
     .hero {
       position: relative;
-      height: 52vh;
+      height: 55vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -97,7 +97,7 @@
       z-index: 1;
     }
     .hero:hover .hero-bg {
-      transform: scale(1.04); /* Gentle zoom effect */
+      transform: scale(1.04);
     }
     .hero-content {
       position: relative;
@@ -112,8 +112,8 @@
       border-radius: 12px;
       background: rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(3px);
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15); /* Subtle gold halo glow */
-      margin-bottom: 1.2rem;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+      margin-bottom: 1rem;
     }
     .hero-logo-svg {
       width: 320px;
@@ -123,7 +123,7 @@
       filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.8));
     }
     .hero p {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 300;
       letter-spacing: 0.5px;
       text-shadow: 1px 2px 4px rgba(0,0,0,0.8);
@@ -141,13 +141,83 @@
       background-color: var(--accent-color);
       box-shadow: 0 0 8px var(--accent-color);
     }
+    
+    /* Hero Get In Touch Button */
+    .hero-btn {
+      margin-top: 1.2rem;
+      padding: 0.7rem 1.6rem;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .hero-btn:hover {
+      background-color: #ffffff;
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    /* Countdown Timer Styles */
+    .timer-container {
+      margin-top: 2rem;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--accent-color);
+      text-align: center;
+    }
+    .timer-title {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .timer-boxes {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .timer-box {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      min-width: 80px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .timer-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      line-height: 1;
+    }
+    .timer-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.2rem;
+    }
+    .timer-note {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
+    }
 
     /* Main Sections */
     section {
       max-width: 1100px;
       margin: 0 auto;
       padding: 3.5rem 2rem;
-      scroll-margin-top: 100px; /* Offset so sticky nav doesn't cover section headings */
+      scroll-margin-top: 100px;
     }
     section:nth-child(even) {
       background-color: var(--white);
@@ -181,6 +251,83 @@
     .audition-link:hover {
       color: var(--accent-color);
     }
+
+    /* Questions & Form Styles */
+    .questions-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .contact-form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--primary-color);
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 0.4rem;
+      color: var(--primary-color);
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+    .submit-btn {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+    }
+    .faq-box {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--accent-color);
+      text-align: center;
+    }
+    .faq-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .faq-btn:hover {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+    }
+
     /* Gallery Placeholder */
     .gallery-placeholder {
       padding: 2rem;
@@ -190,6 +337,32 @@
       color: #666;
       font-style: italic;
     }
+
+    /* Floating Back to Top Button */
+    #backToTopBtn {
+      display: none; 
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1500;
+      border: none;
+      outline: none;
+      background-color: var(--primary-color);
+      color: var(--accent-color);
+      cursor: pointer;
+      padding: 0.8rem 1.1rem;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    #backToTopBtn:hover {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
     /* Modals */
     .modal {
       display: none; 
@@ -203,7 +376,7 @@
     }
     .modal-content {
       background-color: var(--white);
-      margin: 15% auto; 
+      margin: 12% auto; 
       padding: 2rem;
       border-radius: 8px;
       max-width: 500px;
@@ -229,6 +402,7 @@
       padding: 1.5rem;
       margin-top: 2rem;
     }
+
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -240,15 +414,28 @@
         gap: 0.8rem;
       }
       section {
-        scroll-margin-top: 140px; /* Mobile header offset */
+        scroll-margin-top: 140px;
+      }
+      .questions-container {
+        grid-template-columns: 1fr;
+      }
+      .timer-boxes {
+        gap: 0.8rem;
+      }
+      .timer-box {
+        min-width: 65px;
+        padding: 0.6rem;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" onclick="scrollToTop()" title="Go to top">&#9650;</button>
+
   <!-- Navigation Bar -->
-  <header>
+  <header id="top">
     <nav>
       <a href="#" class="logo-container" aria-label="Peak Opera Home">
         <!-- Custom Stencil SVG Logo (Header Version) -->
@@ -270,6 +457,7 @@
         <li><a href="#who-we-are">Who We Are</a></li>
         <li><a href="#upcoming-events">Upcoming Events</a></li>
         <li><a href="#auditions-info">Auditions &amp; Practical Info</a></li>
+        <li><a href="#questions">Questions</a></li>
         <li><a href="#previous-shows">Previous Shows Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -297,6 +485,7 @@
         </svg>
       </div>
       <p>Performing at the International Gilbert &amp; Sullivan Festival</p>
+      <button class="hero-btn" onclick="openModal('getInTouchModal')">Get in Touch</button>
     </div>
   </div>
 
@@ -307,10 +496,34 @@
       <p>We are Peak Opera. We are an amateur society who perform at the International Gilbert and Sullivan Festival every year. Everybody learns their music at home, then we meet up for a week of rehearsals and finish off the week by performing the show in the Buxton Opera House.</p>
     </section>
 
-    <!-- Upcoming Events -->
+    <!-- Upcoming Events & Countdown -->
     <section id="upcoming-events">
       <h2>Upcoming Events</h2>
       <p>Our standard event is performing at the International Gilbert and Sullivan Festival. The show we will be performing in 2027 has not yet been announced. But when it is, we will be sure to update! Our performance and rehearsal dates will also be released shortly.</p>
+
+      <!-- Live Countdown Timer Component -->
+      <div class="timer-container">
+        <div class="timer-title">Countdown to the 2027 International G&amp;S Festival</div>
+        <div class="timer-boxes">
+          <div class="timer-box">
+            <div id="days" class="timer-number">00</div>
+            <div class="timer-label">Days</div>
+          </div>
+          <div class="timer-box">
+            <div id="hours" class="timer-number">00</div>
+            <div class="timer-label">Hours</div>
+          </div>
+          <div class="timer-box">
+            <div id="minutes" class="timer-number">00</div>
+            <div class="timer-label">Minutes</div>
+          </div>
+          <div class="timer-box">
+            <div id="seconds" class="timer-number">00</div>
+            <div class="timer-label">Seconds</div>
+          </div>
+        </div>
+        <p class="timer-note">Note: The countdown date (31 July 2027) marks the first day of the festival and will be changed to our exact showday once released!</p>
+      </div>
     </section>
 
     <!-- Auditions & Practical Info -->
@@ -341,6 +554,37 @@
       </div>
     </section>
 
+    <!-- Questions Section -->
+    <section id="questions">
+      <h2>Questions</h2>
+      <div class="questions-container">
+        <!-- On-Page Question Form -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+          <p style="margin-bottom: 1.2rem;">Have a question? Ask us directly on the website below!</p>
+          <div class="form-group">
+            <label for="q-name">Your Name</label>
+            <input type="text" id="q-name" name="name" required placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="q-email">Your Email</label>
+            <input type="email" id="q-email" name="email" required placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="q-message">Your Question</label>
+            <textarea id="q-message" name="question" rows="4" required placeholder="Type your question here..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Question</button>
+        </form>
+
+        <!-- Quick FAQ Side-box -->
+        <div class="faq-box">
+          <h3>Common Questions</h3>
+          <p style="margin-top: 0.5rem;">Looking for quick answers?</p>
+          <button class="faq-btn" onclick="openModal('faqModal')">Often Asked Questions</button>
+        </div>
+      </div>
+    </section>
+
     <!-- Previous Shows Gallery -->
     <section id="previous-shows">
       <h2>Previous Shows Gallery</h2>
@@ -355,6 +599,15 @@
       <p>Please contact our director at <a href="mailto:director@gmail.com" class="audition-link">director@gmail.com</a>.</p>
     </section>
   </main>
+
+  <!-- Get In Touch Modal -->
+  <div id="getInTouchModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('getInTouchModal')">&times;</span>
+      <h3 style="color: var(--primary-color); margin-bottom: 0.8rem;">Get in Contact</h3>
+      <p>We are excited that you want to get in contact! Either mail our director at <a href="mailto:director@gmail.com" class="audition-link">director@gmail.com</a> or <a class="audition-link" onclick="closeModal('getInTouchModal'); openModal('chorusModal');">audition to join our chorus</a>.</p>
+    </div>
+  </div>
 
   <!-- Soloist Modal -->
   <div id="soloistModal" class="modal">
@@ -375,11 +628,29 @@
     </div>
   </div>
 
+  <!-- FAQ Modal -->
+  <div id="faqModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('faqModal')">&times;</span>
+      <h3 style="color: var(--primary-color); margin-bottom: 1.2rem;">Often Asked Questions</h3>
+      
+      <p><strong>Is there an age limit for performing with you?</strong></p>
+      <p style="margin-top: 0.2rem; margin-bottom: 1rem;">Yes, we do have an upper limit of 80. More info coming...</p>
+      
+      <p><strong>Is there a show-fee?</strong></p>
+      <p style="margin-top: 0.2rem; margin-bottom: 1rem;">Yes.......</p>
+      
+      <p><strong>Do I need to know the music and lyrics off book when I arrive?</strong></p>
+      <p style="margin-top: 0.2rem;">Yes...</p>
+    </div>
+  </div>
+
   <footer>
     <p>Website manager is Sophia Eriksson</p>
   </footer>
 
   <script>
+    /* Modal Handlers */
     function openModal(modalId) {
       document.getElementById(modalId).style.display = 'block';
     }
@@ -391,6 +662,47 @@
         event.target.style.display = 'none';
       }
     }
+
+    /* Back to Top Scroll Logic */
+    const backToTopBtn = document.getElementById("backToTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* Live Countdown Logic (Targeting July 31, 2027) */
+    const targetDate = new Date("July 31, 2027 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+      } else {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
