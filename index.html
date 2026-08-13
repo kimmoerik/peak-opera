@@ -13,24 +13,20 @@
       --light-bg: #f9f8f6;
       --white: #ffffff;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: var(--text-color);
       background-color: var(--light-bg);
     }
-
     /* Navigation Bar */
     header {
       background-color: var(--primary-color);
@@ -39,45 +35,46 @@
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     }
-
     nav {
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 0.8rem 2rem;
     }
-
-    .logo {
-      color: var(--accent-color);
-      font-size: 1.5rem;
-      font-weight: bold;
+    .logo-container {
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      letter-spacing: 1px;
     }
-
+    .nav-logo-svg {
+      height: 38px;
+      width: auto;
+      fill: #ffffff; /* White logo text */
+      transition: opacity 0.3s;
+    }
+    .logo-container:hover .nav-logo-svg {
+      opacity: 0.85;
+    }
     .nav-links {
       list-style: none;
       display: flex;
       gap: 1.2rem;
     }
-
     .nav-links a {
       color: var(--white);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
-
     .nav-links a:hover {
       color: var(--accent-color);
     }
-
     /* Hero Header */
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      height: 40vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://upload.wikimedia.org/wikipedia/commons/1/18/Buxton_Opera_House_2018.jpg') center/cover no-repeat;
+      height: 48vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -86,28 +83,28 @@
       color: var(--white);
       padding: 0 1rem;
     }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: var(--accent-color);
-      margin-bottom: 0.5rem;
+    .hero-logo-svg {
+      width: 280px;
+      max-width: 80vw;
+      height: auto;
+      fill: var(--white);
+      filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.7));
+      margin-bottom: 0.8rem;
     }
-
     .hero p {
       font-size: 1.25rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     }
-
     /* Main Sections */
     section {
       max-width: 1100px;
       margin: 0 auto;
       padding: 3.5rem 2rem;
+      scroll-margin-top: 70px; /* Fixes sticky header overlap */
     }
-
     section:nth-child(even) {
       background-color: var(--white);
     }
-
     h2 {
       font-size: 2rem;
       color: var(--primary-color);
@@ -116,13 +113,11 @@
       display: inline-block;
       padding-bottom: 0.3rem;
     }
-
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
-
     .card {
       background-color: var(--white);
       padding: 1.5rem;
@@ -130,18 +125,15 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.05);
       border-left: 4px solid var(--primary-color);
     }
-
     .audition-link {
       color: var(--primary-color);
       font-weight: bold;
       text-decoration: underline;
       cursor: pointer;
     }
-
     .audition-link:hover {
       color: var(--accent-color);
     }
-
     /* Gallery Placeholder */
     .gallery-placeholder {
       padding: 2rem;
@@ -151,7 +143,6 @@
       color: #666;
       font-style: italic;
     }
-
     /* Modals */
     .modal {
       display: none; 
@@ -163,7 +154,6 @@
       height: 100%; 
       background-color: rgba(0,0,0,0.6); 
     }
-
     .modal-content {
       background-color: var(--white);
       margin: 15% auto; 
@@ -173,7 +163,6 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       position: relative;
     }
-
     .close-btn {
       position: absolute;
       right: 1rem;
@@ -183,11 +172,9 @@
       font-weight: bold;
       cursor: pointer;
     }
-
     .close-btn:hover {
       color: #000;
     }
-
     footer {
       background-color: var(--primary-color);
       color: var(--white);
@@ -195,7 +182,6 @@
       padding: 1.5rem;
       margin-top: 2rem;
     }
-
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -206,9 +192,6 @@
         justify-content: center;
         gap: 0.8rem;
       }
-      .hero h1 {
-        font-size: 2.2rem;
-      }
     }
   </style>
 </head>
@@ -217,7 +200,22 @@
   <!-- Navigation Bar -->
   <header>
     <nav>
-      <a href="#" class="logo">PEAK OPERA</a>
+      <a href="#" class="logo-container" aria-label="Peak Opera Home">
+        <!-- Custom Stencil SVG Logo (Header Version) -->
+        <svg class="nav-logo-svg" viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+          <!-- PEAK -->
+          <path d="M 10 10 H 22 C 30 10 34 14 34 22 C 34 30 30 34 22 34 H 17 V 45 H 10 Z M 17 17 V 27 H 21 C 25 27 27 25 27 22 C 27 19 25 17 21 17 Z"/>
+          <path d="M 40 10 H 62 V 17 H 47 V 24 H 59 V 31 H 47 V 38 H 62 V 45 H 40 Z"/>
+          <path d="M 80 10 C 68 10 67 45 67 45 H 75 C 75 45 76 25 80 18 C 84 25 85 45 85 45 H 93 C 93 45 92 10 80 10 Z"/>
+          <path d="M 98 10 H 105 V 24 L 117 10 H 126 L 112 26 L 127 45 H 118 L 105 29 V 45 H 98 Z"/>
+          <!-- OPERA -->
+          <path d="M 138 10 C 130 10 126 18 126 27.5 C 126 37 130 45 138 45 C 146 45 150 37 150 27.5 C 150 18 146 10 138 10 Z M 138 17 C 141 17 143 21 143 27.5 C 143 34 141 38 138 38 C 135 38 133 34 133 27.5 C 133 21 135 17 138 17 Z"/>
+          <path d="M 156 10 H 168 C 176 10 180 14 180 22 C 180 30 176 34 168 34 H 163 V 45 H 156 Z M 163 17 V 27 H 167 C 171 27 173 25 173 22 C 173 19 171 17 167 17 Z"/>
+          <path d="M 186 10 H 208 V 17 H 193 V 24 H 205 V 31 H 193 V 38 H 208 V 45 H 186 Z"/>
+          <path d="M 214 10 H 226 C 232 10 236 13 236 19 C 236 24 233 27 228 28 L 237 45 H 228 L 220 29 H 221 V 45 H 214 Z M 221 17 V 23 H 225 C 228 23 229 22 229 20 C 229 18 228 17 225 17 Z"/>
+          <path d="M 252 10 C 240 10 239 45 239 45 H 247 C 247 45 248 25 252 18 C 256 25 257 45 257 45 H 265 C 265 45 264 10 252 10 Z"/>
+        </svg>
+      </a>
       <ul class="nav-links">
         <li><a href="#who-we-are">Who We Are</a></li>
         <li><a href="#upcoming-events">Upcoming Events</a></li>
@@ -230,28 +228,40 @@
 
   <!-- Hero Banner -->
   <div class="hero">
-    <h1>Peak Opera</h1>
+    <!-- Custom Stencil SVG Logo (Main Banner Version) -->
+    <svg class="hero-logo-svg" viewBox="0 0 160 110" xmlns="http://www.w3.org/2000/svg">
+      <!-- PEAK (Row 1) -->
+      <path d="M 10 10 H 22 C 30 10 34 14 34 22 C 34 30 30 34 22 34 H 17 V 45 H 10 Z M 17 17 V 27 H 21 C 25 27 27 25 27 22 C 27 19 25 17 21 17 Z"/>
+      <path d="M 40 10 H 62 V 17 H 47 V 24 H 59 V 31 H 47 V 38 H 62 V 45 H 40 Z"/>
+      <path d="M 80 10 C 68 10 67 45 67 45 H 75 C 75 45 76 25 80 18 C 84 25 85 45 85 45 H 93 C 93 45 92 10 80 10 Z"/>
+      <path d="M 98 10 H 105 V 24 L 117 10 H 126 L 112 26 L 127 45 H 118 L 105 29 V 45 H 98 Z"/>
+      <!-- OPERA (Row 2) -->
+      <path d="M 22 60 C 14 60 10 68 10 77.5 C 10 87 14 95 22 95 C 30 95 34 87 34 77.5 C 34 68 30 60 22 60 Z M 22 67 C 25 67 27 71 27 77.5 C 27 84 25 88 22 88 C 19 88 17 84 17 77.5 C 17 71 19 67 22 67 Z"/>
+      <path d="M 40 60 H 52 C 60 60 64 64 64 72 C 64 80 60 84 52 84 H 47 V 95 H 40 Z M 47 67 V 77 H 51 C 55 77 57 75 57 72 C 57 69 55 67 51 67 Z"/>
+      <path d="M 70 60 H 92 V 67 H 77 V 74 H 89 V 81 H 77 V 88 H 92 V 95 H 70 Z"/>
+      <path d="M 98 60 H 110 C 116 60 120 63 120 69 C 120 74 117 77 112 78 L 121 95 H 112 L 104 79 H 105 V 95 H 98 Z M 105 67 V 73 H 109 C 112 73 113 72 113 70 C 113 68 112 67 109 67 Z"/>
+      <path d="M 136 60 C 124 60 123 95 123 95 H 131 C 131 95 132 75 136 68 C 140 75 141 95 141 95 H 149 C 149 95 148 60 136 60 Z"/>
+    </svg>
     <p>Performing at the International Gilbert &amp; Sullivan Festival</p>
   </div>
 
   <main>
-    
     <!-- Who We Are -->
     <section id="who-we-are">
       <h2>Who We Are</h2>
-      <p>We are Peak Opera. We are a amature society who perform at the International Gilbert and Sullivan Festival every year. Everybody learns there music at home. Then we meet up for a week of rehersals and finish off the week by performing the show in the Buxton Opera House.</p>
+      <p>We are Peak Opera. We are an amateur society who perform at the International Gilbert and Sullivan Festival every year. Everybody learns their music at home, then we meet up for a week of rehearsals and finish off the week by performing the show in the Buxton Opera House.</p>
     </section>
 
     <!-- Upcoming Events -->
     <section id="upcoming-events">
       <h2>Upcoming Events</h2>
-      <p>Our standard event is performing at the International Gilbert and Sullivan Festival. The show we will be performing 2027 has not yet been anounced. But when it is we will be sure to update! Our performance and rehersal dates will also be released shortly.</p>
+      <p>Our standard event is performing at the International Gilbert and Sullivan Festival. The show we will be performing in 2027 has not yet been announced. But when it is, we will be sure to update! Our performance and rehearsal dates will also be released shortly.</p>
     </section>
 
     <!-- Auditions & Practical Info -->
     <section id="auditions-info">
       <h2>Auditions &amp; Practical Info</h2>
-      <p style="margin-bottom: 1.5rem;">Next year we will perform the oparetta Ruddigore.</p>
+      <p style="margin-bottom: 1.5rem;">Next year we will perform the operetta Ruddigore.</p>
       
       <div class="grid-2">
         <div class="card">
@@ -261,17 +271,16 @@
             <a class="audition-link" onclick="openModal('soloistModal')">see further information here</a>.
           </p>
           <p>
-            If you would like to audition to our chourus, please 
+            If you would like to audition for our chorus, please 
             <a class="audition-link" onclick="openModal('chorusModal')">see further information here</a>.
           </p>
         </div>
-
         <div class="card">
           <h3>Practical Information</h3>
-          <p><strong>Rehersal venue:</strong> the church</p>
-          <p><strong>Rehersal dates:</strong> 1-7 july</p>
-          <p><strong>Soloist rehersals:</strong> 30 july-7 august</p>
-          <p><strong>Show day:</strong> 7 august</p>
+          <p><strong>Rehearsal venue:</strong> The Church</p>
+          <p><strong>Rehearsal dates:</strong> 1–7 July</p>
+          <p><strong>Soloist rehearsals:</strong> 30 July–7 August</p>
+          <p><strong>Show day:</strong> 7 August</p>
           <p style="margin-top: 0.8rem; font-style: italic;">If you have any questions, please contact the director.</p>
         </div>
       </div>
@@ -281,7 +290,7 @@
     <section id="previous-shows">
       <h2>Previous Shows Gallery</h2>
       <div class="gallery-placeholder">
-        <p>Previous Shows Gallery will be fixed later.</p>
+        <p>Pictures coming soon</p>
       </div>
     </section>
 
@@ -290,7 +299,6 @@
       <h2>Contact</h2>
       <p>Please contact our director at <a href="mailto:director@gmail.com" class="audition-link">director@gmail.com</a>.</p>
     </section>
-
   </main>
 
   <!-- Soloist Modal -->
@@ -309,29 +317,27 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal('chorusModal')">&times;</span>
       <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Chorus Audition Info</h3>
-      <p><strong>Chorus auditions:</strong> Sing welcome gentry and send to director.</p>
+      <p><strong>Chorus auditions:</strong> Sing "Welcome Gentry" and send to director.</p>
     </div>
   </div>
 
   <footer>
     <p>&copy; Peak Opera. Performing at the Buxton Opera House.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9;">Website manager is Sophia Eriksson</p>
   </footer>
 
   <script>
     function openModal(modalId) {
       document.getElementById(modalId).style.display = 'block';
     }
-
     function closeModal(modalId) {
       document.getElementById(modalId).style.display = 'none';
     }
-
     window.onclick = function(event) {
       if (event.target.classList.contains('modal')) {
         event.target.style.display = 'none';
       }
     }
   </script>
-
 </body>
 </html>
